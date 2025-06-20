@@ -9,38 +9,38 @@ name: 'Execução Manual'
 on:
   workflow_dispatch:
 
-  # trabalhos/tarefas dentro do pipeline = jobs
-  jobs:
-    e2e-tests:
+# trabalhos/tarefas dentro do pipeline = jobs
+jobs:
+  e2e-tests:
 
-      #maquina que o job vai executar
-      runs-on: ubuntu-latest
+    #maquina que o job vai executar
+    runs-on: ubuntu-latest
 
-      # passos do script de build
-      steps:
-        # clone do projeto
-        - uses: actions/checkout@v4
+    # passos do script de build
+    steps:
+      # clone do projeto
+      - uses: actions/checkout@v4
 
-        # instalacao do node
-        - uses: actions/setup-node@v4
-          with:
-            node-version: latest
+      # instalacao do node
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
 
-        # instalacao do Yarn
-        - name: Instalando Yarn
-          run: npm install -g yarn
+      # instalacao do Yarn
+      - name: Instalando Yarn
+        run: npm install -g yarn
 
-        # instalacao das dependências
-        - name: Instalando dependências
-          run: yarn
+      # instalacao das dependências
+      - name: Instalando dependências
+        run: yarn
 
-          # instalacao do Playwright
-        - name: Instalando Playwright
-          run: yarn playwright install
+      # instalacao do Playwright
+      - name: Instalando Playwright
+        run: yarn playwright install
 
-           # executar os testes e2e
-        - name: Executando Testes E2E
-          run: yarn run e2e
+      # executar os testes e2e
+      - name: Executando Testes E2E
+        run: yarn run e2e
 
 
 
