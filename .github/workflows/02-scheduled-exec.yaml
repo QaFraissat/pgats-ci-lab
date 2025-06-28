@@ -4,7 +4,7 @@
 name: 'Execução Agendada'
 
 # regras de disparo (gatilhos/triggers)
-# gatilho de exec manual = schedule
+# gatilho de exec agendada = schedule
 
 on:
   schedule:
