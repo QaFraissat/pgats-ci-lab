@@ -1,14 +1,14 @@
- # CI de Nível 01 - Disparo manual a partir de 1 clique
+ # CI de Nível 02 - Disparo agendado
 
 # nome do nosso 'pipeline'
-name: 'Execução Manual'
+name: 'Execução Agendada'
 
 # regras de disparo (gatilhos/triggers)
 # gatilho de exec manual = schedule
 
 on:
   schedule:
-    - cron: '0 6 * * 0'
+    - cron: '25 17 * * 6'
 
 # trabalhos/tarefas dentro do pipeline = jobs
 jobs:
