@@ -41,6 +41,15 @@ jobs:
       # executar os testes e2e
       - name: Executando Testes E2E
         run: yarn run e2e
+      
+      - name: Notificação simples de status
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "🎉 Workflow finalizado com SUCESSO!"
+          else
+            echo "❌ Workflow FALHOU!"
+          fi
+
 
 
 
