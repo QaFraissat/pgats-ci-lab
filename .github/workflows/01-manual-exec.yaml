@@ -62,6 +62,12 @@ jobs:
           echo "📄 Commit: ${{ github.sha }}"
           echo "✅ Status: ${{ job.status }}"
 
+      - name: Upload do relatório Playwright
+        uses: actions/upload-artifact@v4
+        with:
+          name: Relatorio-Playwright
+          path: playwright-report
+
 
 
 
