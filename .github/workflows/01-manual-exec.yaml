@@ -49,6 +49,18 @@ jobs:
           else
             echo "❌ Workflow FALHOU!"
           fi
+      
+      - name: Relatório simples de execução
+        run: |
+          echo "📋 RELATÓRIO FINAL DO WORKFLOW"
+          echo "------------------------------"
+          echo "🔧 Pipeline: Execução Manual"
+          echo "👤 Autor: ${{ github.actor }}"
+          echo "📦 Repositório: ${{ github.repository }}"
+          echo "🌱 Branch: ${{ github.ref }}"
+          echo "🕒 Executado em: ${{ github.run_started_at }}"
+          echo "📄 Commit: ${{ github.sha }}"
+          echo "✅ Status: ${{ job.status }}"
 
 
 
