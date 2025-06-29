@@ -70,6 +70,13 @@ jobs:
           echo "📄 Commit: ${{ github.sha }}"
           echo "✅ Status: ${{ job.status }}"
 
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: relatório
+          path: ./playwright-report
+
+
 
 
 
