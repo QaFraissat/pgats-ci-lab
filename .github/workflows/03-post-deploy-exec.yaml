@@ -19,6 +19,11 @@ jobs:
     #maquina que o job vai executar
     runs-on: ubuntu-latest
 
+    #condicional - if
+    # `${ expressao }`
+    # == comparacao
+    if: ${{ github.event.workflow_run.conclusion ==  'success' }}
+
     # passos do script de build
     steps:
       # clone do projeto
@@ -31,7 +36,7 @@ jobs:
 
       # instalacao do Yarn
       - name: Instalando Yarn
-        run: npm install -g yarn
+        run: npm install -g yarngit
 
       # instalacao das dependências
       - name: Instalando dependências
