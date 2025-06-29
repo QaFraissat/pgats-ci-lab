@@ -1,4 +1,4 @@
- # CI de Nível 03 - Disparo após a conclusão de um pipeline
+# CI de Nível 03 - Disparo após a conclusão de um pipeline
 
 # nome do nosso 'pipeline'
 name: 'Execução por Deploy'
@@ -8,14 +8,13 @@ name: 'Execução por Deploy'
 
 on:
   workflow_run:
-    workflows:  ['Execução Manual']
+    workflows: ['Execução Manual']
     types:
       - completed
 
 # trabalhos/tarefas dentro do pipeline = jobs
 jobs:
   e2e-tests:
-
     #maquina que o job vai executar
     runs-on: ubuntu-latest
 
@@ -49,7 +48,7 @@ jobs:
       # executar os testes e2e
       - name: Executando Testes E2E
         run: yarn run e2e
-      
+
       - name: Notificação simples de status
         run: |
           if [ "${{ job.status }}" == "success" ]; then
@@ -57,7 +56,7 @@ jobs:
           else
             echo "❌ Workflow FALHOU!"
           fi
-      
+
       - name: Relatório simples de execução
         run: |
           echo "📋 RELATÓRIO FINAL DO WORKFLOW"
@@ -75,8 +74,3 @@ jobs:
         with:
           name: relatório
           path: ./playwright-report
-
-
-
-
-
